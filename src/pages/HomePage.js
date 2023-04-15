@@ -29,6 +29,10 @@ function HomePage() {
   const filters = watch();
   const filterProducts = applyFilter(products, filters);
 
+  const handleReset = () => {
+    reset();
+  };
+
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
@@ -49,7 +53,7 @@ function HomePage() {
     <Container sx={{ display: "flex", minHeight: "100vh", mt: 3 }}>
       <Stack>
         <FormProvider methods={methods}>
-          <ProductFilter resetFilter={reset} />
+          <ProductFilter resetFilter={handleReset} />
         </FormProvider>
       </Stack>
       <Stack sx={{ flexGrow: 1 }}>
